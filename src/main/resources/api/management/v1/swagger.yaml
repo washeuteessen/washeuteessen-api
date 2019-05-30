@@ -1,0 +1,65 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "WasHeuteEssen Management API"
+basePath: "/v1"
+schemes:
+  - "http"
+tags:
+  - name: management
+paths:
+  /recipies:
+    post:
+      summary: "create a recipe"
+      description: ""
+      operationId: "create"
+      tags:
+        - managements
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "recipe"
+          description: "the recipe to create"
+          required: true
+          schema:
+            $ref: '#/definitions/CreateRecipe'
+      responses:
+        201:
+          description: "recipe created"
+          schema:
+            $ref: '#/definitions/Recipe'
+definitions:
+  CreateRecipe:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      url:
+        type: "string"
+      ingridients:
+        $ref: '#/definitions/Ingridients'
+  Recipe:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      title:
+        type: "string"
+      url:
+        type: "string"
+      ingridients:
+        $ref: '#/definitions/Ingridients'
+  Recipies:
+    type: "object"
+    properties:
+      recipies:
+        type: array
+        items:
+          $ref: '#/definitions/Recipe'
+  Ingridients:
+    type: "array"
+    items:
+      type: string

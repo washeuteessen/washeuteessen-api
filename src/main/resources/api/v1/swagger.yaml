@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "WasHeuteEssen API"
+basePath: "/v1"
+schemes:
+  - "http"
+paths:
+  /search:
+    get:
+      summary: "search for recipies"
+      description: ""
+      operationId: "search"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "s"
+          description: "the string to search"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "found recipies"
+          schema:
+            $ref: '#/definitions/Recipies'
+definitions:
+  Recipe:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      title:
+        type: "string"
+      url:
+        type: "string"
+  Recipies:
+    type: "object"
+    properties:
+      recipies:
+        type: array
+        items:
+          $ref: '#/definitions/Recipe'
