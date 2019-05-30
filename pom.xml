@@ -120,7 +120,7 @@
                             </configOptions>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <modelPackage>de.washeuteessen.api.swagger.management.v1.model</modelPackage>
-                            <apiPackage>com.washeuteessen.api.swagger.management.v1</apiPackage>
+                            <apiPackage>de.washeuteessen.api.swagger.management.v1</apiPackage>
                             <modelNamePrefix>ManagementApiV1_</modelNamePrefix>
                         </configuration>
                     </execution>
