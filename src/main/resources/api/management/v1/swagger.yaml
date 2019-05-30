@@ -2,7 +2,6 @@ swagger: "2.0"
 info:
   version: "1.0.0"
   title: "WasHeuteEssen Management API"
-basePath: "/v1"
 schemes:
   - "http"
 tags:
@@ -14,7 +13,7 @@ paths:
       description: ""
       operationId: "create"
       tags:
-        - managements
+        - management
       consumes:
         - "application/json"
       produces:

@@ -2,9 +2,10 @@ swagger: "2.0"
 info:
   version: "1.0.0"
   title: "WasHeuteEssen API"
-basePath: "/v1"
 schemes:
   - "http"
+tags:
+  - name: search
 paths:
   /search:
     get:
@@ -13,6 +14,8 @@ paths:
       operationId: "search"
       produces:
         - "application/json"
+      tags:
+        - search
       parameters:
         - in: "query"
           name: "s"
