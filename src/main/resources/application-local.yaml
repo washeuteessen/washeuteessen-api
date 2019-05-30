@@ -1,1 +1,8 @@
-hibernate.search.default.indexBase: ./index
+spring:
+  jpa:
+    properties:
+      hibernate:
+        search:
+          default:
+            indexBase: ./index
+            directory_provider: filesystem

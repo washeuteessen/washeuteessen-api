@@ -1,0 +1,8 @@
+name: washeuteessen-apic
+version: 0.1
+description: Helm Deployment Descriptions for washeuteessen-API
+keywords:
+  - washeuteessen
+home: https://github.com/washeuteessen
+sources:
+  - https://github.com/washeuteessen/washeuteessen-api
