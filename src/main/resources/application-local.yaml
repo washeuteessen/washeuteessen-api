@@ -6,3 +6,5 @@ spring:
           default:
             indexBase: ./index
             directory_provider: filesystem
+  datasource:
+    url: jdbc:h2:file:./index;DB_CLOSE_ON_EXIT=FALSE
