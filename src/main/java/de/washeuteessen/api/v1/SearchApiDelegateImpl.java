@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -19,9 +20,9 @@ public class SearchApiDelegateImpl implements SearchApiDelegate {
     private SearchService searchService;
 
     @Override
-    public ResponseEntity<ApiV1Recipies> search(String s) {
+    public ResponseEntity<ApiV1Recipies> search(String s, final Integer offset, final Integer limit) {
 
-        final List<Recipe> recipies = this.searchService.search(s);
+        final List<Recipe> recipies = this.searchService.search(s, Optional.ofNullable(offset), Optional.ofNullable(limit));
 
         final ApiV1Recipies resp = new ApiV1Recipies();
         resp.setRecipies(recipies.stream()
@@ -30,4 +31,6 @@ public class SearchApiDelegateImpl implements SearchApiDelegate {
 
         return ResponseEntity.ok(resp);
     }
+
+
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -17,7 +18,7 @@ public class SearchService {
 
     private EntityManager em;
 
-    public List<Recipe> search(final String s) {
+    public List<Recipe> search(final String s, final Optional<Integer> offset, final Optional<Integer> limit) {
 
         final FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(this.em);
 
@@ -34,6 +35,9 @@ public class SearchService {
                 .createQuery();
 
         final FullTextQuery jpaQuery = fullTextEntityManager.createFullTextQuery(query, Recipe.class);
+        jpaQuery.setFirstResult(offset.orElse(0));
+        jpaQuery.setMaxResults(limit.orElse(20));
+
         return jpaQuery.getResultList();
     }
 

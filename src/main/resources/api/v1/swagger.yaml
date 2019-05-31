@@ -22,6 +22,16 @@ paths:
           description: "the string to search"
           required: true
           type: "string"
+        - in: "query"
+          name: "offset"
+          description: "first element offset to return"
+          required: false
+          type: "integer"
+        - in: "query"
+          name: "limit"
+          description: "max elements to return"
+          required: false
+          type: "integer"
       responses:
         200:
           description: "found recipies"
