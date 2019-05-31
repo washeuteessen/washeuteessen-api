@@ -1,4 +1,4 @@
-name: washeuteessen-apic
+name: washeuteessen-api
 version: 0.1
 description: Helm Deployment Descriptions for washeuteessen-API
 keywords:
