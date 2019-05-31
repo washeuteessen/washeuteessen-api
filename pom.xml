@@ -30,6 +30,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -119,6 +123,7 @@
                                 <delegatePattern>true</delegatePattern>
                             </configOptions>
                             <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateApiTests>false</generateApiTests>
                             <modelPackage>de.washeuteessen.api.swagger.management.v1.model</modelPackage>
                             <apiPackage>de.washeuteessen.api.swagger.management.v1</apiPackage>
                             <modelNamePrefix>ManagementApiV1_</modelNamePrefix>
