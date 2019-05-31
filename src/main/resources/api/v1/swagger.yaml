@@ -7,10 +7,23 @@ schemes:
 tags:
   - name: search
 paths:
+  /recipies/{id}/external:
+    get:
+      summary: "open a recipe"
+      operationId: "openExternal"
+      tags:
+        - search
+      parameters:
+        - in: "path"
+          name: "id"
+          description: "id of the recipe"
+          type: "string"
+      responses:
+        301:
+          description: "redirect to external source"
   /search:
     get:
       summary: "search for recipies"
-      description: ""
       operationId: "search"
       produces:
         - "application/json"

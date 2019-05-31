@@ -1,7 +1,7 @@
 package de.washeuteessen.api.management.v1;
 
 import de.washeuteessen.api.management.v1.model.V1ManagementRecipe;
-import de.washeuteessen.api.swagger.management.v1.RecipiesApiDelegate;
+import de.washeuteessen.api.swagger.management.v1.ManagementApiDelegate;
 import de.washeuteessen.api.swagger.management.v1.model.ManagementApiV1CreateRecipe;
 import de.washeuteessen.api.swagger.management.v1.model.ManagementApiV1Recipe;
 import de.washeuteessen.recipe.Recipe;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class RecipiesDelegateImpl implements RecipiesApiDelegate {
+public class ManagementDelegateImpl implements ManagementApiDelegate {
 
     private RecipeService recipeService;
 

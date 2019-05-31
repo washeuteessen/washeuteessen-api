@@ -1,5 +1,6 @@
 package de.washeuteessen.recipe;
 
+import de.washeuteessen.recipe.exception.RecipeNotFoundException;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,11 @@ public class RecipeService {
         LOG.info("{} created", recipe);
 
         return recipe;
+    }
+
+    public Recipe get(final Long id) {
+        return this.recipeRepository.findById(id)
+                .orElseThrow(() -> new RecipeNotFoundException(id));
     }
 
 }

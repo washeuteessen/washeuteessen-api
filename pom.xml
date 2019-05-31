@@ -102,6 +102,7 @@
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                                 <dateLibrary>java8</dateLibrary>
                                 <delegatePattern>true</delegatePattern>
+                                <useTags>true</useTags>
                             </configOptions>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <modelPackage>de.washeuteessen.api.swagger.v1.model</modelPackage>
@@ -121,6 +122,7 @@
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                                 <dateLibrary>java8</dateLibrary>
                                 <delegatePattern>true</delegatePattern>
+                                <useTags>true</useTags>
                             </configOptions>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <generateApiTests>false</generateApiTests>
