@@ -8,7 +8,7 @@ public class V1Recipe extends ApiV1Recipe {
     public V1Recipe(final Recipe recipe) {
         super.setId(String.valueOf(recipe.getId()));
         super.setTitle(recipe.getTitle());
-        super.setUrl(recipe.getUrl());
+        super.setImageSrc(recipe.getImageSrc());
     }
 
 }

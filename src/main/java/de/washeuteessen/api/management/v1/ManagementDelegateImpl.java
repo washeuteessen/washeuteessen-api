@@ -23,6 +23,7 @@ public class ManagementDelegateImpl implements ManagementApiDelegate {
         Recipe recipe = Recipe.builder()
                 .title(recipeReq.getTitle())
                 .url(recipeReq.getUrl())
+                .imageSrc(recipeReq.getImageSrc())
                 .ingredients(recipeReq.getIngridients())
                 .build();
 

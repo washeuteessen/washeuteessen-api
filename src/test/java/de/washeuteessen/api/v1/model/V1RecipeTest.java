@@ -20,13 +20,13 @@ class V1RecipeTest {
     }
 
     @Test
-    public void should_MapUrl() {
+    public void should_MapImageSrc() {
 
         final Recipe recipe = TestRecipe.full()
-                .url("someurl")
+                .imageSrc("http://somewhere.com")
                 .build();
 
-        assertThat(new V1Recipe(recipe).getUrl()).isEqualTo("someurl");
+        assertThat(new V1Recipe(recipe).getImageSrc()).isEqualTo("http://somewhere.com");
     }
 
     @Test

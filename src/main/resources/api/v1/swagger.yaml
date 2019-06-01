@@ -58,7 +58,7 @@ definitions:
         type: "string"
       title:
         type: "string"
-      url:
+      imageSrc:
         type: "string"
   Recipies:
     type: "object"

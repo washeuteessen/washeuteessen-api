@@ -10,6 +10,7 @@ public class V1ManagementRecipe extends ManagementApiV1Recipe {
         super.setId(String.valueOf(recipe.getId()));
         super.setTitle(recipe.getTitle());
         super.setUrl(recipe.getUrl());
+        super.setImageSrc(recipe.getImageSrc());
         if (null != recipe.getIngredients()) {
             super.setIngridients(new ManagementApiV1Ingridients());
             super.getIngridients().addAll(recipe.getIngredients());
