@@ -4,6 +4,6 @@ metadata:
   name: {{ print .Values.name "-config" }}
   namespace: {{ .Values.namespace }}
 data:
-  spring.data.mongodb.uri: mongodb://mongo
-  spring.data.mongodb.database: image
-  image.api.publicUrl: {{ print "http://" .Values.application_domain "/v0_1/" }}
+  spring.datasource.username: {{ .Values.db_user }}
+  spring.datasource.password: {{ .Values.db_password }}
+  spring.datasource.url: jdbc:postgresql://postgres:5432/washeuteessen

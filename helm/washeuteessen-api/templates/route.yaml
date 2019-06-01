@@ -6,9 +6,13 @@ metadata:
   labels:
     app: {{ .Values.app_name | quote }}
 spec:
-  host: {{ .Values.application_domain | quote }}
+  host: {{ .Values.api_host | quote }}
   port:
     targetPort: 80-tcp
   to:
     kind: Service
     name: {{ .Values.name | quote }}
+    weight: 100
+status:
+  ingress:
+    - {}

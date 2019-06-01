@@ -38,3 +38,9 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ print .Values.name "-config" }}
+          volumeMounts:
+            - mountPath: /index
+              name: index
+      volumes:
+        - emptyDir: {}
+          name: index

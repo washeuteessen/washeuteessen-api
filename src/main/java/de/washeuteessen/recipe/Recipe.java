@@ -4,11 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
-import org.apache.lucene.analysis.snowball.SnowballPorterFilterFactory;
-import org.apache.lucene.analysis.standard.StandardTokenizerFactory;
-import org.hibernate.search.annotations.Parameter;
-import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
+import org.hibernate.search.annotations.TermVector;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,14 +18,6 @@ import java.util.List;
 @Indexed
 @AllArgsConstructor
 @NoArgsConstructor
-@AnalyzerDef(name = "customanalyzer",
-        tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),
-        filters = {
-                @TokenFilterDef(factory = LowerCaseFilterFactory.class),
-                @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = {
-                        @Parameter(name = "language", value = "German")
-                })
-        })
 public class Recipe {
 
     @Id
@@ -34,15 +25,18 @@ public class Recipe {
     private Long id;
 
     @Field(termVector = TermVector.YES)
-    @Analyzer(definition = "customanalyzer")
     private String title;
 
     private String url;
 
     @IndexedEmbedded
     @Field(termVector = TermVector.YES)
-    @Analyzer(definition = "customanalyzer")
     @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "INGREDIENTS",
+            joinColumns = @JoinColumn(name = "RECIPE_ID")
+    )
+    @Column(name = "INGREDIENT")
     private List<String> ingredients;
 
 }
