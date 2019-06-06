@@ -1,6 +1,6 @@
 package de.washeuteessen.api.v1.model;
 
-import de.washeuteessen.api.management.v1.model.TestRecipe;
+import de.washeuteessen.api.TestRecipe;
 import de.washeuteessen.recipe.Recipe;
 import org.junit.jupiter.api.Test;
 

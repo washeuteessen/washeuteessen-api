@@ -1,4 +1,4 @@
-package de.washeuteessen.api.management.v1.model;
+package de.washeuteessen.api;
 
 import de.washeuteessen.recipe.Recipe;
 
