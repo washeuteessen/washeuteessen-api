@@ -10,3 +10,5 @@ spring:
             directory_provider: filesystem
   datasource:
     url: jdbc:h2:file:./index/database;DB_CLOSE_ON_EXIT=FALSE
+  h2.console.enabled: true
+  h2.console.path: /h2-console

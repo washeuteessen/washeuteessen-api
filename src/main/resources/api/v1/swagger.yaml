@@ -18,6 +18,7 @@ paths:
           name: "id"
           description: "id of the recipe"
           type: "string"
+          required: true
       responses:
         301:
           description: "redirect to external source"
@@ -59,6 +60,8 @@ definitions:
       title:
         type: "string"
       imageSrc:
+        type: "string"
+      source:
         type: "string"
   Recipies:
     type: "object"

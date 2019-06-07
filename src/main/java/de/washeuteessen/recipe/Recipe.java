@@ -29,6 +29,7 @@ public class Recipe {
 
     private String url;
     private String imageSrc;
+    private String source;
 
     @IndexedEmbedded
     @Field(termVector = TermVector.YES)
