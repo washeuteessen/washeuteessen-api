@@ -1,6 +1,7 @@
 package de.washeuteessen.api.v1;
 
 import de.washeuteessen.api.swagger.v1.SearchApiDelegate;
+import de.washeuteessen.api.swagger.v1.model.ApiV1Recipe;
 import de.washeuteessen.api.swagger.v1.model.ApiV1Recipies;
 import de.washeuteessen.api.v1.model.V1Recipe;
 import de.washeuteessen.recipe.Recipe;
@@ -39,5 +40,13 @@ public class SearchApiDelegateImpl implements SearchApiDelegate {
         final Recipe recipe = this.recipeService.get(Long.parseLong(id));
 
         return ResponseEntity.status(301).header("Location", recipe.getUrl()).build();
+    }
+
+    @Override
+    public ResponseEntity<ApiV1Recipe> getRecipe(String id) {
+
+        final Recipe recipe = this.recipeService.get(Long.parseLong(id));
+
+        return ResponseEntity.ok().body(new V1Recipe(recipe));
     }
 }

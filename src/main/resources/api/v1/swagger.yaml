@@ -7,6 +7,23 @@ schemes:
 tags:
   - name: search
 paths:
+  /recipies/{id}:
+    get:
+      summary: "get a recipe"
+      operationId: "getRecipe"
+      tags:
+        - search
+      parameters:
+        - in: "path"
+          name: "id"
+          description: "id of the recipe"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: '#/definitions/Recipe'
   /recipies/{id}/external:
     get:
       summary: "open a recipe"
