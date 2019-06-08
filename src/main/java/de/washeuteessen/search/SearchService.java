@@ -17,6 +17,7 @@ import java.util.Optional;
 public class SearchService {
 
     private EntityManager em;
+    private SearchMetrics searchMetrics;
 
     public List<Recipe> search(final String s, final Optional<Integer> offset, final Optional<Integer> limit) {
 
@@ -37,6 +38,8 @@ public class SearchService {
         final FullTextQuery jpaQuery = fullTextEntityManager.createFullTextQuery(query, Recipe.class);
         jpaQuery.setFirstResult(offset.orElse(0));
         jpaQuery.setMaxResults(limit.orElse(20));
+
+        this.searchMetrics.incrementTotalSearches();
 
         return jpaQuery.getResultList();
     }

@@ -37,9 +37,9 @@ public class SearchApiDelegateImpl implements SearchApiDelegate {
 
     @Override
     public ResponseEntity<Void> openExternal(final String id) {
-        final Recipe recipe = this.recipeService.get(Long.parseLong(id));
+        final String url = this.recipeService.open(Long.parseLong(id));
 
-        return ResponseEntity.status(301).header("Location", recipe.getUrl()).build();
+        return ResponseEntity.status(301).header("Location", url).build();
     }
 
     @Override

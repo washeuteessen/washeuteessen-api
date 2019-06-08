@@ -11,3 +11,13 @@ spring:
 server:
   tomcat:
     max-threads: 100
+
+management.endpoint:
+  metrics.enabled: true
+  prometheus.enabled: true
+management.metrics.export.prometheus.enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
