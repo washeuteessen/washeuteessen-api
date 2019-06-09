@@ -39,7 +39,9 @@ public class SearchService {
         jpaQuery.setFirstResult(offset.orElse(0));
         jpaQuery.setMaxResults(limit.orElse(20));
 
-        this.searchMetrics.incrementTotalSearches();
+        if (!offset.isPresent() || offset.get() == 0) {
+            this.searchMetrics.incrementTotalSearches();
+        }
 
         return jpaQuery.getResultList();
     }
