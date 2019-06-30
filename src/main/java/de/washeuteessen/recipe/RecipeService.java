@@ -2,7 +2,6 @@ package de.washeuteessen.recipe;
 
 import de.washeuteessen.recipe.exception.RecipeNotFoundException;
 import lombok.AllArgsConstructor;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,9 +24,9 @@ public class RecipeService {
         return recipe.getUrl();
     }
 
-    @Scheduled(fixedRate = 30000)
-    public void countForMetrics() {
+    public Long recipiesInDatabase() {
         final Long total = this.recipeRepository.count();
         this.recipeMetrics.setTotalRecipies(total);
+        return total;
     }
 }
