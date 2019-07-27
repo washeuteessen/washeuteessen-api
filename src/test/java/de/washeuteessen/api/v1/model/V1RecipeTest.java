@@ -1,13 +1,13 @@
 package de.washeuteessen.api.v1.model;
 
+
 import de.washeuteessen.api.TestRecipe;
 import de.washeuteessen.recipe.Recipe;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-class V1RecipeTest {
+public class V1RecipeTest {
 
     @Test
     public void should_MapTitle() {

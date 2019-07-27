@@ -1,8 +1,11 @@
 package de.washeuteessen.recipe;
 
 import de.washeuteessen.recipe.exception.RecipeNotFoundException;
+import io.reactivex.Flowable;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -12,7 +15,8 @@ public class RecipeService {
     private RecipeMetrics recipeMetrics;
 
     public Recipe get(final Long id) {
-        return this.recipeRepository.findById(id)
+        return Optional
+                .ofNullable(this.recipeRepository.findById(id).blockingGet())
                 .orElseThrow(() -> new RecipeNotFoundException(id));
     }
 
@@ -25,8 +29,13 @@ public class RecipeService {
     }
 
     public Long recipiesInDatabase() {
-        final Long total = this.recipeRepository.count();
+        final Long total = this.recipeRepository.count().blockingGet();
         this.recipeMetrics.setTotalRecipies(total);
         return total;
     }
+
+    public Flowable<Recipe> getAll() {
+        return this.recipeRepository.findAll();
+    }
+
 }

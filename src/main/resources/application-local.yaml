@@ -13,4 +13,3 @@ spring:
     username: postgres
   flyway:
     baseline-on-migrate: true
-
