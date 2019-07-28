@@ -7,7 +7,7 @@ schemes:
 tags:
   - name: search
 paths:
-  /recipies/{id}:
+  /recipes/{id}:
     get:
       summary: "get a recipe"
       operationId: "getRecipe"
@@ -24,7 +24,7 @@ paths:
           description: "OK"
           schema:
             $ref: '#/definitions/Recipe'
-  /recipies/{id}/external:
+  /recipes/{id}/external:
     get:
       summary: "open a recipe"
       operationId: "openExternal"
@@ -41,7 +41,7 @@ paths:
           description: "redirect to external source"
   /search:
     get:
-      summary: "search for recipies"
+      summary: "search for recipes"
       operationId: "search"
       produces:
         - "application/json"
@@ -65,9 +65,9 @@ paths:
           type: "integer"
       responses:
         200:
-          description: "found recipies"
+          description: "found recipes"
           schema:
-            $ref: '#/definitions/Recipies'
+            $ref: '#/definitions/Recipes'
 definitions:
   Recipe:
     type: "object"
@@ -80,10 +80,10 @@ definitions:
         type: "string"
       source:
         type: "string"
-  Recipies:
+  Recipes:
     type: "object"
     properties:
-      recipies:
+      recipes:
         type: array
         items:
           $ref: '#/definitions/Recipe'

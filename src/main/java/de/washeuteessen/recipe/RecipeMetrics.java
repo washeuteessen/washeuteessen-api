@@ -9,28 +9,28 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class RecipeMetrics {
 
-    private final Counter redirect_recipies;
-    private final AtomicLong total_recipies;
-    private final AtomicLong indexed_recipies;
+    private final Counter redirect_recipes;
+    private final AtomicLong total_recipes;
+    private final AtomicLong indexed_recipes;
 
     public RecipeMetrics() {
-        this.total_recipies = Metrics.gauge("recipies.total", new AtomicLong());
-        this.indexed_recipies = Metrics.gauge("recipies.indexed", new AtomicLong());
-        this.redirect_recipies = Metrics.counter("recipies.redirects");
+        this.total_recipes = Metrics.gauge("recipes.total", new AtomicLong());
+        this.indexed_recipes = Metrics.gauge("recipes.indexed", new AtomicLong());
+        this.redirect_recipes = Metrics.counter("recipes.redirects");
     }
 
-    public RecipeMetrics setTotalRecipies(final long count) {
-        this.total_recipies.set(count);
+    public RecipeMetrics setTotalRecipes(final long count) {
+        this.total_recipes.set(count);
         return this;
     }
 
-    public RecipeMetrics incrementRedirectRecipies() {
-        this.redirect_recipies.increment();
+    public RecipeMetrics incrementRedirectRecipes() {
+        this.redirect_recipes.increment();
         return this;
     }
 
-    public RecipeMetrics setIndexedRecipies(final long count) {
-        this.indexed_recipies.set(count);
+    public RecipeMetrics setIndexedRecipes(final long count) {
+        this.indexed_recipes.set(count);
         return this;
     }
 

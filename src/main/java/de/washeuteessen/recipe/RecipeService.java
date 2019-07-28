@@ -19,14 +19,14 @@ public class RecipeService {
     public String open(final Long id) {
         final Recipe recipe = this.get(id);
 
-        this.recipeMetrics.incrementRedirectRecipies();
+        this.recipeMetrics.incrementRedirectRecipes();
 
         return recipe.getUrl();
     }
 
-    public Long recipiesInDatabase() {
+    public Long recipesInDatabase() {
         final Long total = this.recipeRepository.count();
-        this.recipeMetrics.setTotalRecipies(total);
+        this.recipeMetrics.setTotalRecipes(total);
         return total;
     }
 }
