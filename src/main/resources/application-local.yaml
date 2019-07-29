@@ -8,8 +8,7 @@ spring:
             indexBase: ./index
             directory_provider: filesystem
   datasource:
-    url: jdbc:postgresql://docker.local:5432/washeuteessen
-    password: password
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
   flyway:
     baseline-on-migrate: true
