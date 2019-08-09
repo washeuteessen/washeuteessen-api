@@ -1,0 +1,69 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "WasHeuteEssen Health API"
+schemes:
+  - "http"
+tags:
+  - name: health
+paths:
+  /health:
+    get:
+      summary: "check health"
+      operationId: "getHealth"
+      produces:
+        - application/json
+      tags:
+        - health
+      responses:
+        200:
+          description: "api is up"
+          schema:
+            $ref: '#/definitions/Health'
+  /health/{component}:
+    get:
+      summary: "check health of a component"
+      operationId: "getComponentHealth"
+      produces:
+        - application/json
+      tags:
+        - health
+      parameters:
+        - in: path
+          name: component
+          required: true
+          type: string
+      responses:
+        200:
+          description: "api is up"
+          schema:
+            $ref: '#/definitions/HealthComponent'
+definitions:
+  Health:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/Status'
+      details:
+        $ref: '#/definitions/HealthDetails'
+  HealthDetails:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/HealthComponent'
+  HealthComponent:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/Status'
+      details:
+        $ref: '#/definitions/HealthComponentDetails'
+  HealthComponentDetails:
+    type: object
+    additionalProperties:
+      type: object
+  Status:
+    type: string
+    enum:
+      - UP
+      - DOWN
+      - NOT_READY

@@ -3,7 +3,7 @@ info:
   version: "1.0.0"
   title: "WasHeuteEssen API"
 schemes:
-  - "http"
+  - "https"
 tags:
   - name: search
 paths:
@@ -87,3 +87,4 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Recipe'
+
