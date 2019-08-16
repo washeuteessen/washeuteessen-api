@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -36,6 +37,7 @@ public class SearchService {
                 .createQuery();
 
         final FullTextQuery jpaQuery = fullTextEntityManager.createFullTextQuery(query, Recipe.class);
+        jpaQuery.setProjection("id", "title", "source", "imageSrc");
         jpaQuery.setFirstResult(offset.orElse(0));
         jpaQuery.setMaxResults(limit.orElse(20));
 
@@ -43,7 +45,9 @@ public class SearchService {
             this.searchMetrics.incrementTotalSearches();
         }
 
-        return jpaQuery.getResultList();
+        return (List<Recipe>) jpaQuery.getResultList().stream()
+                .map(objArr -> new Recipe((Object[]) objArr))
+                .collect(Collectors.toList());
     }
 
 }

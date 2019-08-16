@@ -8,6 +8,7 @@ spring:
           default:
             indexBase: /index
             directory_provider: filesystem
+
 server:
   tomcat:
     max-threads: 100
